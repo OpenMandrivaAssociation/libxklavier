@@ -1,8 +1,10 @@
 %define major 11
 %define libname %mklibname xklavier %major
+%define develname %mklibname -d xklavier
+%define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	3.2
+Version:	3.3
 Release:	%mkrel 1
 License:	LGPL
 Group:		System/Libraries
@@ -16,7 +18,7 @@ BuildRequires:	glib2-devel
 BuildRequires:	gtk-doc
 BuildRequires:	automake1.9
 BuildRequires:	gettext-devel
-Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.gz
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -37,24 +39,26 @@ Requires: 	%name-data >= %version-%release
 %description -n %libname
 This library allows you simplify XKB-related development.
 
-%package -n %libname-devel
+%package -n %develname
 Summary: Libraries, includes, etc to develop libxklavier applications
 Group: Development/C
 Requires: %{libname} = %{version}
 Provides: %name-devel = %version-%release
 Conflicts: %{_lib}xklavier8-devel
+Obsoletes: %mklibname -d xklavier 11
 
-%description  -n %libname-devel
+%description  -n %develname
 Libraries, include files, etc you can use to develop libxklavier
 applications.
 
-%package -n %libname-static-devel
+%package -n %staticname
 Group: Development/C
 Summary: Static library of %name
-Requires: %libname-devel = %version
+Requires: %develname = %version
 Provides: %{name}-static-devel = %{version}-%{release}
+Obsoletes: %mklibname -s -d xklavier 11
 
-%description -n %libname-static-devel
+%description -n %staticname
 This package contains the static library required for statically
 linking applications based on %{name}.
 
@@ -92,7 +96,7 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog NEWS README COPYING.LIB 
 %{_libdir}/lib*.so.%{major}*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-, root, root)
 %{_libdir}/pkgconfig/*.pc
 %attr(644,root,root) %{_libdir}/*.la
@@ -100,7 +104,7 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %_datadir/gtk-doc/html/libxklavier/
 
-%files -n %libname-static-devel
+%files -n %staticname
 %defattr(-, root, root)
 %{_libdir}/*.a
 
