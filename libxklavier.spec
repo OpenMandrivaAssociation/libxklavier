@@ -19,7 +19,6 @@ BuildRequires:	gtk-doc
 BuildRequires:	automake1.9
 BuildRequires:	gettext-devel
 Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.gz
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 This library allows you simplify XKB-related development.
