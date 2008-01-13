@@ -5,7 +5,7 @@
 Name:		libxklavier
 Summary:	X Keyboard support library
 Version:	3.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
