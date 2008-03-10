@@ -4,7 +4,7 @@
 %define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	3.4
+Version:	3.5
 Release:	%mkrel 1
 License:	LGPL
 Group:		System/Libraries
@@ -24,17 +24,11 @@ Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 %description
 This library allows you simplify XKB-related development.
 
-%package data
-Summary:	Keyboard description data
-Group:		System/Libraries
-
-%description data
-This contains the data files needed by %name.
 
 %package -n %libname
 Summary:	X Keyboard support library
 Group:		System/Libraries
-Requires: 	%name-data >= %version-%release
+Obsoletes: 	%name-data
 
 %description -n %libname
 This library allows you simplify XKB-related development.
@@ -83,12 +77,6 @@ rm -rf %{buildroot}
 
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
-
-
-%files data
-%defattr(-, root, root)
-%doc README
-%{_datadir}/libxklavier
 
 
 %files -n %libname
