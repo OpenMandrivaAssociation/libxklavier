@@ -5,7 +5,7 @@
 Name:		libxklavier
 Summary:	X Keyboard support library
 Version:	3.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPL
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
@@ -28,7 +28,6 @@ This library allows you simplify XKB-related development.
 %package -n %libname
 Summary:	X Keyboard support library
 Group:		System/Libraries
-Obsoletes: 	%name-data
 
 %description -n %libname
 This library allows you simplify XKB-related development.
