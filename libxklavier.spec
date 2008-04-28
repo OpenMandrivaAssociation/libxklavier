@@ -18,6 +18,7 @@ BuildRequires:	glib2-devel
 BuildRequires:	gtk-doc
 BuildRequires:	automake1.9
 BuildRequires:	gettext-devel
+BuildRequires:	iso-codes
 Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.gz
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
@@ -28,6 +29,7 @@ This library allows you simplify XKB-related development.
 %package -n %libname
 Summary:	X Keyboard support library
 Group:		System/Libraries
+Requires: iso-codes
 
 %description -n %libname
 This library allows you simplify XKB-related development.
