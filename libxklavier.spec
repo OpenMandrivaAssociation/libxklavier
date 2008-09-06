@@ -4,9 +4,9 @@
 %define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	3.6
-Release:	%mkrel 2
-License:	LGPL
+Version:	3.7
+Release:	%mkrel 1
+License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
 # (fc) 3.1-3mdv fix realloc misuse (CVS)
@@ -19,7 +19,7 @@ BuildRequires:	gtk-doc
 BuildRequires:	automake1.9
 BuildRequires:	gettext-devel
 BuildRequires:	iso-codes
-Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.bz2
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
