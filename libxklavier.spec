@@ -4,7 +4,7 @@
 %define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	3.7
+Version:	3.8
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		System/Libraries
