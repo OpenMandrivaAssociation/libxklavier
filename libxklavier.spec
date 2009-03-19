@@ -19,7 +19,8 @@ BuildRequires:	gtk-doc
 BuildRequires:	automake1.9
 BuildRequires:	gettext-devel
 BuildRequires:	iso-codes
-Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.bz2
+Source: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
+#Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.bz2
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
