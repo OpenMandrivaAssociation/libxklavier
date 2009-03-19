@@ -4,11 +4,12 @@
 %define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	3.8
+Version:	3.9
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
+Patch:		libxklavier-3.9-format-strings.patch
 # (fc) 3.1-3mdv fix realloc misuse (CVS)
 Patch1:		libxklavier-3.1-realloc.patch
 BuildRequires:	libxml2-devel
@@ -60,6 +61,7 @@ linking applications based on %{name}.
 
 %prep
 %setup -q
+%patch -p1
 %patch1 -p1 -b .fixrealloc
 
 %build
