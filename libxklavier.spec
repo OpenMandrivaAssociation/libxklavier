@@ -1,17 +1,14 @@
-%define major 12
+%define major 15
 %define libname %mklibname xklavier %major
 %define develname %mklibname -d xklavier
 %define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	3.9
+Version:	4.0
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
-Patch:		libxklavier-3.9-format-strings.patch
-# (fc) 3.1-3mdv fix realloc misuse (CVS)
-Patch1:		libxklavier-3.1-realloc.patch
 BuildRequires:	libxml2-devel
 BuildRequires:	doxygen
 BuildRequires:	libxkbfile-devel
@@ -61,8 +58,6 @@ linking applications based on %{name}.
 
 %prep
 %setup -q
-%patch -p1
-%patch1 -p1 -b .fixrealloc
 
 %build
 if [ ! -f configure ]; then
