@@ -1,10 +1,10 @@
-%define major 15
+%define major 16
 %define libname %mklibname xklavier %major
 %define develname %mklibname -d xklavier
 %define staticname %mklibname -s -d xklavier
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	4.0
+Version:	5.0
 Release:	%mkrel 1
 License:	LGPLv2+
 Group:		System/Libraries
