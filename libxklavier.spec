@@ -5,7 +5,7 @@
 Name:		libxklavier
 Summary:	X Keyboard support library
 Version:	5.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
@@ -14,8 +14,9 @@ BuildRequires:	doxygen
 BuildRequires:	libxkbfile-devel
 BuildRequires:	glib2-devel
 BuildRequires:	gtk-doc
-BuildRequires:	automake1.9
+BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	libxi-devel
 BuildRequires:	iso-codes
 Source: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
 #Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.bz2
@@ -63,7 +64,7 @@ linking applications based on %{name}.
 if [ ! -f configure ]; then
     CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh
 fi
-%configure2_5x --enable-doxygen --with-xkb-base=%_datadir/X11/xkb/ --with-xkb-bin-base=%_bindir/ --enable-xmm-support
+%configure2_5x --with-xkb-base=%_datadir/X11/xkb/ --with-xkb-bin-base=%_bindir/
 %make 
 
 %install
