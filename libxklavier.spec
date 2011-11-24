@@ -11,11 +11,9 @@ Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 
-BuildRequires:	doxygen
-BuildRequires:	gtk-doc
 BuildRequires:	iso-codes
 BuildRequires:	gettext-devel
-BuildRequires:	pkgconfig(libglib-2.0)
+BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xkbfile)
@@ -71,3 +69,4 @@ find %{buildroot} -name "*.la" -delete
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
 %{_includedir}/*
+%{_datadir}/gtk-doc/html/%{name}/*
