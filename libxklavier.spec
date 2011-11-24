@@ -1,61 +1,47 @@
 %define major 16
-%define libname %mklibname xklavier %major
+%define libname %mklibname xklavier %{major}
 %define develname %mklibname -d xklavier
-%define staticname %mklibname -s -d xklavier
+
 Name:		libxklavier
 Summary:	X Keyboard support library
 Version:	5.1
-Release:	%mkrel 2
+Release:	3
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
-BuildRequires:	libxml2-devel
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+
 BuildRequires:	doxygen
-BuildRequires:	libxkbfile-devel
-BuildRequires:	glib2-devel
 BuildRequires:	gtk-doc
-BuildRequires:	automake
-BuildRequires:	gettext-devel
-BuildRequires:	libxi-devel
 BuildRequires:	iso-codes
-Source: http://ftp.gnome.org/pub/GNOME/sources/%name/%{name}-%{version}.tar.bz2
-#Source0:	http://prdownloads.sourceforge.net/gswitchit/%{name}-%{version}.tar.bz2
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRequires:	gettext-devel
+BuildRequires:	pkgconfig(libglib-2.0)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(xkbfile)
 
 %description
 This library allows you simplify XKB-related development.
 
 
-%package -n %libname
+%package -n %{libname}
 Summary:	X Keyboard support library
 Group:		System/Libraries
-Requires: iso-codes
 
-%description -n %libname
+%description -n %{libname}
 This library allows you simplify XKB-related development.
 
-%package -n %develname
+%package -n %{develname}
 Summary: Libraries, includes, etc to develop libxklavier applications
 Group: Development/C
-Requires: %{libname} = %{version}
-Provides: %name-devel = %version-%release
+Requires: %{libname} = %{version}-%{release}
+Provides: %{name}-devel = %{version}-%{release}
 Conflicts: %{_lib}xklavier8-devel
 Obsoletes: %mklibname -d xklavier 11
 
-%description  -n %develname
+%description  -n %{develname}
 Libraries, include files, etc you can use to develop libxklavier
 applications.
-
-%package -n %staticname
-Group: Development/C
-Summary: Static library of %name
-Requires: %develname = %version
-Provides: %{name}-static-devel = %{version}-%{release}
-Obsoletes: %mklibname -s -d xklavier 11
-
-%description -n %staticname
-This package contains the static library required for statically
-linking applications based on %{name}.
 
 %prep
 %setup -q
@@ -64,40 +50,24 @@ linking applications based on %{name}.
 if [ ! -f configure ]; then
     CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh
 fi
-%configure2_5x --with-xkb-base=%_datadir/X11/xkb/ --with-xkb-bin-base=%_bindir/
+%configure2_5x \
+	--disable-static \
+	--with-xkb-base=%{_datadir}/X11/xkb/ \
+	--with-xkb-bin-base=%{_bindir}/
+
 %make 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
-
-%clean
 rm -rf %{buildroot}
+%makeinstall_std
+find %{buildroot} -name "*.la" -delete
 
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
-
-%files -n %libname
-%defattr(-, root, root)
-%doc AUTHORS ChangeLog NEWS README COPYING.LIB 
+%files -n %{libname}
+%doc COPYING.LIB 
 %{_libdir}/lib*.so.%{major}*
 
-%files -n %develname
-%defattr(-, root, root)
+%files -n %{develname}
+%doc AUTHORS ChangeLog NEWS README
 %{_libdir}/pkgconfig/*.pc
-%attr(644,root,root) %{_libdir}/*.la
 %{_libdir}/*.so
 %{_includedir}/*
-%_datadir/gtk-doc/html/libxklavier/
-
-%files -n %staticname
-%defattr(-, root, root)
-%{_libdir}/*.a
-
-
