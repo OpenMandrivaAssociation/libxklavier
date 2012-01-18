@@ -4,12 +4,12 @@
 
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	5.1
-Release:	3
+Version:	5.2
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
 
 BuildRequires:	iso-codes
 BuildRequires:	gettext-devel
