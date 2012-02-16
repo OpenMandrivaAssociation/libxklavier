@@ -4,7 +4,7 @@
 
 Name:		libxklavier
 Summary:	X Keyboard support library
-Version:	5.2
+Version:	5.2.1
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
