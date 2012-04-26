@@ -73,10 +73,14 @@ find %{buildroot} -name "*.la" -delete
 %doc COPYING.LIB 
 %{_libdir}/lib*.so.%{major}*
 
+%files -n %{girname}
+%{_libdir}/girepository-1.0/Xkl-%{gir_major}.typelib
+
 %files -n %{develname}
 %doc AUTHORS ChangeLog NEWS README
-%{_libdir}/pkgconfig/*.pc
-%{_libdir}/*.so
 %{_includedir}/*
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/*.pc
+%{_datadir}/gir-1.0/Xkl-%{gir_major}.gir
 %{_datadir}/gtk-doc/html/%{name}/*
 
