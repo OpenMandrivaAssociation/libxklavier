@@ -1,17 +1,19 @@
-%define major 16
-%define gir_major 1.0
-%define libname %mklibname xklavier %{major}
-%define girname %mklibname xkl-gir %{gir_major}
-%define develname %mklibname -d xklavier
+%define url_ver %(echo %{version}|cut -d. -f1,2)
 
-Name:		libxklavier
+%define major	16
+%define gimajor	1.0
+%define libname %mklibname xklavier %{major}
+%define girname %mklibname xkl-gir %{gimajor}
+%define devname %mklibname -d xklavier
+
 Summary:	X Keyboard support library
+Name:		libxklavier
 Version:	5.3
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/5.3/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxklavier/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	iso-codes
 BuildRequires:	gettext-devel
@@ -32,22 +34,20 @@ Group:		System/Libraries
 This library allows you simplify XKB-related development.
 
 %package -n %{girname}
-Group: System/Libraries
-Summary: GObject Introspection interface library for %{name}
+Group:		System/Libraries
+Summary:	GObject Introspection interface library for %{name}
 
 %description -n %{girname}
 GObject Introspection interface library for %{name}.
 
-%package -n %{develname}
-Summary: Libraries, includes, etc to develop libxklavier applications
-Group: Development/C
-Requires: %{libname} = %{version}-%{release}
-Requires: %{girname} = %{version}-%{release}
-Provides: %{name}-devel = %{version}-%{release}
-Conflicts: %{_lib}xklavier8-devel
-Obsoletes: %mklibname -d xklavier 11
+%package -n %{devname}
+Summary:	Libraries, includes, etc to develop libxklavier applications
+Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description  -n %{develname}
+%description  -n %{devname}
 Libraries, include files, etc you can use to develop libxklavier
 applications.
 
@@ -67,20 +67,18 @@ fi
 
 %install
 %makeinstall_std
-find %{buildroot} -name "*.la" -delete
 
 %files -n %{libname}
-%doc COPYING.LIB 
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Xkl-%{gir_major}.typelib
+%{_libdir}/girepository-1.0/Xkl-%{gimajor}.typelib
 
-%files -n %{develname}
-%doc AUTHORS ChangeLog NEWS README
+%files -n %{devname}
+%doc AUTHORS ChangeLog NEWS README COPYING.LIB 
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/gir-1.0/Xkl-%{gir_major}.gir
+%{_datadir}/gir-1.0/Xkl-%{gimajor}.gir
 %{_datadir}/gtk-doc/html/%{name}/*
 
