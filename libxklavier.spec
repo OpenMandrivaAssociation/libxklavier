@@ -1,7 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define major	16
-%define gimajor	1.0
+%define major 16
+%define gimajor 1.0
 %define libname %mklibname xklavier %{major}
 %define girname %mklibname xkl-gir %{gimajor}
 %define devname %mklibname -d xklavier
@@ -9,7 +9,7 @@
 Summary:	X Keyboard support library
 Name:		libxklavier
 Version:	5.3
-Release:	2
+Release:	7
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
