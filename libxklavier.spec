@@ -9,7 +9,7 @@
 Summary:	X Keyboard support library
 Name:		libxklavier
 Version:	5.3
-Release:	10
+Release:	11
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
@@ -58,7 +58,7 @@ applications.
 if [ ! -f configure ]; then
     CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh
 fi
-%configure \
+%configure2_5x \
 	--disable-static \
 	--with-xkb-base=%{_datadir}/X11/xkb/ \
 	--with-xkb-bin-base=%{_bindir}/
