@@ -58,7 +58,7 @@ applications.
 if [ ! -f configure ]; then
     CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh
 fi
-%configure2_5x \
+%configure \
 	--disable-static \
 	--with-xkb-base=%{_datadir}/X11/xkb/ \
 	--with-xkb-bin-base=%{_bindir}/
