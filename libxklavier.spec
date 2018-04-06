@@ -1,4 +1,5 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 %define major 16
 %define gimajor 1.0
@@ -8,12 +9,13 @@
 
 Summary:	X Keyboard support library
 Name:		libxklavier
-Version:	5.3
-Release:	14
+Version:	5.4
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gswitchit.sourceforge.net/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxklavier/%{url_ver}/%{name}-%{version}.tar.xz
+#Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxklavier/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://people.freedesktop.org/~svu/%{name}-%{version}.tar.bz2
 
 BuildRequires:	iso-codes
 BuildRequires:	gettext-devel
@@ -60,6 +62,7 @@ if [ ! -f configure ]; then
 fi
 %configure \
 	--disable-static \
+	--disable-vala \
 	--with-xkb-base=%{_datadir}/X11/xkb/ \
 	--with-xkb-bin-base=%{_bindir}/
 

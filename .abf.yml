@@ -1,3 +1,4 @@
-
+removed_sources:
+  libxklavier-5.3.tar.xz: dc5e824c738520229174ba9481f0cab35be4870f
 sources:
-   libxklavier-5.3.tar.xz: dc5e824c738520229174ba9481f0cab35be4870f
+  libxklavier-5.4.tar.bz2: 6bd04a332700ad43d518167beaafbf734e94bd35
