@@ -17,7 +17,7 @@ Url:		http://gswitchit.sourceforge.net/
 #Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxklavier/%{url_ver}/%{name}-%{version}.tar.xz
 Source0:	http://people.freedesktop.org/~svu/%{name}-%{version}.tar.bz2
 
-BuildRequires:	iso-codes
+BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -54,7 +54,7 @@ Libraries, include files, etc you can use to develop libxklavier
 applications.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 if [ ! -f configure ]; then
@@ -66,10 +66,10 @@ fi
 	--with-xkb-base=%{_datadir}/X11/xkb/ \
 	--with-xkb-bin-base=%{_bindir}/
 
-%make 
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/lib*.so.%{major}*
