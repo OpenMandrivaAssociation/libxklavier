@@ -13,7 +13,7 @@ Version:	5.4
 Release:	4
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://gswitchit.sourceforge.net/
+Url:		https://gswitchit.sourceforge.net/
 #Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxklavier/%{url_ver}/%{name}-%{version}.tar.xz
 Source0:	http://people.freedesktop.org/~svu/%{name}-%{version}.tar.bz2
 
