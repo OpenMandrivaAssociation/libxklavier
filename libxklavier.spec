@@ -17,6 +17,11 @@ Url:		https://gswitchit.sourceforge.net/
 #Source0:	http://ftp.gnome.org/pub/GNOME/sources/libxklavier/%{url_ver}/%{name}-%{version}.tar.xz
 Source0:	http://people.freedesktop.org/~svu/%{name}-%{version}.tar.bz2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(glib-2.0)
