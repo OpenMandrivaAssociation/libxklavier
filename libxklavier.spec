@@ -10,7 +10,7 @@
 Summary:	X Keyboard support library
 Name:		libxklavier
 Version:	5.4
-Release:	4
+Release:	5
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://gswitchit.sourceforge.net/
